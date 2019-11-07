@@ -11,19 +11,20 @@ N = 256;
 x = 32 * pi * (1:N)' / N;
 u = cos(x / 16) .* (1 + sin(x / 16));
 U = fft(u);
-% Precompute various ETDRK4 scalar quantities:
 h = 0.02;
 k = [0:N/2-1 0 -N/2+1:-1]' / 16;
 
 % Main time-stepping loop:
-uu = u; tt = 0;
-tmax = 150; nmax = round(tmax / h); nplt = floor((tmax / 100) / h);
-g = -0.5i * k;
+uu = u;
+tt = 0;
+tmax = 150;
+nmax = round(tmax / h);
+nplt = floor((tmax / 100) / h);
 
 for n = 1:nmax
     t = n * h;
-    
-    U = Ruth(h, U, k);
+
+    U = TatoSimetrico(h, U, k);
 
     if mod(n, nplt) == 0
         u = real(ifft(U));
