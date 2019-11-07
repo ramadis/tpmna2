@@ -12,7 +12,7 @@ x = 32 * pi * (1:N)' / N;
 u = cos(x / 16) .* (1 + sin(x / 16));
 U = fft(u);
 % Precompute various ETDRK4 scalar quantities:
-h = 1/4;
+h = 0.02;
 k = [0:N/2-1 0 -N/2+1:-1]' / 16;
 
 % Main time-stepping loop:
@@ -23,8 +23,7 @@ g = -0.5i * k;
 for n = 1:nmax
     t = n * h;
     
-    U = Lineal(delta_t, U, k);
-    U = NoLineal(delta_t, U, k);
+    U = Ruth(h, U, k);
 
     if mod(n, nplt) == 0
         u = real(ifft(U));
