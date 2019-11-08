@@ -9,7 +9,9 @@
 % Spatial grid and initial condition:
 N = 256;
 x = 32 * pi * (1:N)' / N;
-u = cos(x / 16) .* (1 + sin(x / 16));
+perturbance = x * (rand * 0.1)
+px = x + x * perturbance
+u = cos(px / 16) .* (1 + sin(px / 16));
 U = fft(u);
 h = 0.02;
 k = [0:N/2-1 0 -N/2+1:-1]' / 16;
