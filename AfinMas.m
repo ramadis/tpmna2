@@ -1,6 +1,6 @@
-function U = TatoMas(h, U, k)
+function U = AfinMas(h, U, k)
   % This function is a helper to calculate symmetric
-  % Tato integrator.
+  % Afin integrator.
   
   U = NoLineal(h, Lineal(h, U, k), k);
   

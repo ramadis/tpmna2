@@ -24,7 +24,7 @@ nplt = floor((tmax / 100) / h);
 for n = 1:nmax
     t = n * h;
 
-    U = TatoSimetrico(h, U, k);
+    U = AfinSimetrico(h, U, k);
 
     if mod(n, nplt) == 0
         u = real(ifft(U));
