@@ -15,5 +15,5 @@ function gammas = GamasSimetrico(q)
     end
   end
   
-  gammas = inv(M) * [1 zeros(1, n - 1)]';
+  gammas = inv(M) * [1/2 zeros(1, n - 1)]';
 end

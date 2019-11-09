@@ -11,7 +11,7 @@ tensortt = {};
 
 % Solver method
 for i = 1:frames
-  [tt, uu] = Solver(h,x,k,2,0);
+  [tt, uu] = Solver(h,x,k,4,0);
   tensoruu = [tensoruu uu];
   tensortt = [tensortt tt];
 end
