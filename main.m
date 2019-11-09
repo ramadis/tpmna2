@@ -11,7 +11,7 @@ N = 256;
 x = 32 * pi * (1:N)' / N;
 h = 0.02;
 k = [0:N/2-1 0 -N/2+1:-1]' / 16;
-frames = 1;
+frames = 30;
 tensoruu = {};
 tensortt = {};
 tmax = 150;
@@ -22,7 +22,7 @@ for i = 1:frames
   % Spatial grid and initial condition:
   perturbance = x * (rand * 0.01 - 0.005);
   % perturbance = 0;
-  px = x + x .* perturbance;
+  px = x + perturbance;
   u = cos(px / 16) .* (1 + sin(px / 16));
   U = fft(u);
 
