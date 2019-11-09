@@ -1,11 +1,3 @@
-% ver página 12 del paper.
-% kursiv.m - solution of Kuramoto-Sivashinsky equation by ETDRK4 scheme
-%
-%   u_t = -u*u_x - u_xx - u_xxxx, periodic BCs on [0,32*pi]
-%   computation is based on v = fft(u), so linear term is diagonal
-%   compare p27.m in Trefethen, "Spectral Methods in MATLAB", SIAM 2000
-%   AK Kassam and LN Trefethen, July 2002
-
 % Analysis constants
 N = 256;
 x = 32 * pi * (1:N)' / N;
@@ -19,7 +11,7 @@ tensortt = {};
 
 % Solver method
 for i = 1:frames
-  [tt, uu] = Solver(h,x,k,2);
+  [tt, uu] = Solver(h,x,k,2,0);
   tensoruu = [tensoruu uu];
   tensortt = [tensortt tt];
 end

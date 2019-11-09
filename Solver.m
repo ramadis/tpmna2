@@ -1,11 +1,19 @@
-function [tt, uu] = Solver(h,x,k,q)
+function [tt, uu] = Solver(h,x,k,q,p)
+  % solves the differential equation using an integrator.
+  
+  % h: time step
+  % x: values of x
+  % k: values of k
+  % q: order of the integrator
+  % p: perturbance enabled or disabled
+  
   % Set time limit
   tmax = 150;
   nmax = round(tmax / h);
   nplt = floor((tmax / 100) / h);
 
   % Define initial conditions:
-  perturbance = x * (rand * 0.01 - 0.005);
+  perturbance = x * (rand * 0.01 - 0.005) * p; % p is 1 if perturbance is enabled, 0 otherwise
   % perturbance = 0;
   px = x + perturbance;
   u = cos(px / 16) .* (1 + sin(px / 16));
