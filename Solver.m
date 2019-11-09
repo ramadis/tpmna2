@@ -16,7 +16,7 @@ function [tt, uu] = Solver(h,x,k,q,p)
   perturbance = x * (rand * 0.01 - 0.005) * p; % p is 1 if perturbance is enabled, 0 otherwise
   % perturbance = 0;
   px = x + perturbance;
-  u = cos(px / 16) .* (1 + sin(px / 16));
+  u = InitialCondition(px);
   U = fft(u);
 
   % Main solving loop:
