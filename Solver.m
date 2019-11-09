@@ -25,7 +25,8 @@ function [tt, uu] = Solver(h,x,k,q,p)
   for n = 1:nmax
       t = n * h;
 
-      U = AfinSimetrico(h, U, k, q);
+      % U = AfinSimetrico(h, U, k, q);
+      U = Neri(h, U, k);
 
       % Save solution once every nlpt steps
       if mod(n, nplt) == 0

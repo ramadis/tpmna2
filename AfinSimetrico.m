@@ -1,6 +1,6 @@
 function U = AfinSimetrico(h, U, k, q)
   % This function calculates the next U using
-  % Afin integrator asymmetric with sequential computing.
+  % Afin integrator symmetric with sequential computing.
 
   gammas = GamasSimetrico(q);
   Z = 0;
