@@ -1,19 +1,18 @@
-function gammas = GammasSymetric(q)
+function gammas = GamasAsimetrico(q)
   % This function calculates the gammas for the asymmetric Afin integrator
 
-  n = q/2
-  M = ones(n);
-  for j = 1:n
-    for i = 1:n-1
+  M = ones(q);
+  for j = 1:q
+    for i = 1:q-1
       M(j,i) = i + M(j,i);
     end
   end
   
-  for j = 1:n
-    for i = 1:n
+  for j = 1:q
+    for i = 1:q
       M(j,i) = M(j,i).^(1-j);
     end
   end
   
-  gammas = inv(M) * [1 zeros(1, n - 1)]';
+  gammas = inv(M) * [1 zeros(1, q - 1)]';
 end

@@ -1,18 +1,15 @@
-function U = AfinSimetrico(h, U, k, q)
+function U = AfinAsimetrico(h, U, k, q)
   % This function calculates the next U using
   % Afin integrator asymmetric with sequential computing.
 
-  gammas = GamasSimetrico(q);
+  gammas = GamasAsimetrico(q);
   Z = 0;
-  n = q/2;
-  for i = 1:n
+  for i = 1:q
     X = U;
-    Y = U;
     for j = 1:i
       X = AfinMas(h/i, X, k);
-      Y = AfinMenos(h/i, Y, k);
     end
-    Z = Z + gammas(i) .* X + gammas(i) .* Y;
+    Z = Z + gammas(i) .* X;
   end
   U = Z;
 end

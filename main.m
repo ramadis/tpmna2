@@ -9,8 +9,9 @@
 % Spatial grid and initial condition:
 N = 256;
 x = 32 * pi * (1:N)' / N;
-perturbance = x * (rand * 0.1)
-px = x + x * perturbance
+% perturbance = x * (rand * 0.1);
+perturbance = 0;
+px = x + x .* perturbance;
 u = cos(px / 16) .* (1 + sin(px / 16));
 U = fft(u);
 h = 0.02;
@@ -26,7 +27,7 @@ nplt = floor((tmax / 100) / h);
 for n = 1:nmax
     t = n * h;
 
-    U = AfinSimetrico(h, U, k);
+    U = AfinSimetrico(h, U, k, 4);
 
     if mod(n, nplt) == 0
         u = real(ifft(U));
