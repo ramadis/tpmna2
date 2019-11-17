@@ -1,7 +1,7 @@
 % Analysis constants
 N = 256;
 x = 32 * pi * (1:N)' / N;
-h = 0.002;
+h = 0.2;
 k = [0:N/2-1 0 -N/2+1:-1]' / 16;
 
 % Render constants

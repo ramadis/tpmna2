@@ -1,5 +1,5 @@
-function [tt, uu] = Solver(h,x,k,q,p)
-  % solves the differential equation using an integrator.
+function [tt, uu] = SolverParalelo(h,x,k,q,p)
+  % solves the differential equation using a parallel integrator.
 
   % h: time step
   % x: values of x
@@ -25,7 +25,7 @@ function [tt, uu] = Solver(h,x,k,q,p)
   for n = 1:nmax
       t = n * h;
 
-      U = AfinSimetrico(h, U, k, q);
+      U = AfinAsimetricoParalelo(h, U, k, q);
 
       % Save solution once every nlpt steps
       if mod(n, nplt) == 0

@@ -1,26 +1,22 @@
-function U = AfinAsimetricoParalelo(h, U, k, q)
+function U = AfinSimetricoParalelo(h, U, k, q)
   % This function calculates the next U using
   % Afin integrator symmetric with parallel computing.
 
-  nucleus = 3
-  x = U
-  n = q/2
+  x = U;
+  y = U;
+  n = q/2;
   gammas = GamasSimetrico(q);
-  spmd(nucleus)
-    for j = 1:n
-      for s = 1:labindex
-        if labindex == s
+  spmd(n)
+      for j = 1:labindex
           x = AfinMas(h/labindex, x, k);
-        end
-      end
-      x = gammas(labindex) * x;
-    end
+          y = AfinMenos(h/labindex, x, k);
+      end 
+      x = gammas(labindex) .* x + gammas(labindex) .* y;
   end
-  
+
   for s = 2:n
-    x{1} = x{1}+x{s};
+      x{1} = x{1} +x{s};
   end
 
   U = x{1};
-
 end
