@@ -47,5 +47,5 @@ def localAsimetrico():
 
 
 
-# analyze('../results/data/error_global/afines/simetrico')
-localAsimetrico()
+analyze('../results/data/error_global/afines/simetrico')
+# localAsimetrico()
