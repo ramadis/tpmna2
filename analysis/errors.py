@@ -33,4 +33,19 @@ def analyze(directory):
   # saveFig(fig, 'comparison_graph')
   plt.show()
 
-analyze('../results/data/error_global/afines/asimetrico')
+def localAsimetrico():
+  # h=0.01
+  orders = [2,3,4,5,6]
+  errs = [64.6796, 63.6937, 45.4015, 47.5083, 32.3724]
+  fig, ax = plt.subplots()
+  ax.set_ylabel('Error Local')
+  ax.set_xlabel('Order (q)')
+  ax.plot(orders, errs, 'o-', markersize=2)
+  fig.tight_layout()
+  ax.legend()
+  plt.show()
+
+
+
+# analyze('../results/data/error_global/afines/simetrico')
+localAsimetrico()

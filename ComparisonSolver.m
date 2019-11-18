@@ -26,7 +26,7 @@ function [tt, uu] = ComparisonSolver(h, x, k, q, p)
     for n = 1:nmax
         t = n * h;
 
-        U = AfinAsimetrico(h, U, k, 6);
+        U = AfinAsimetrico(h, U, k, 1);
 
         % Save solution once every nlpt steps
         % if mod(n, nplt) == 0
