@@ -1,4 +1,4 @@
-function U = Strang(h, U, k)
+function U = Strang(h, U, k, q)
   % This function calculates the next U using
   % Strang integrator.
   

@@ -1,4 +1,4 @@
-function U = Ruth(h, U, k)
+function U = Ruth(h, U, k, q)
   % This function calculates the next U using
   % Ruth's order 3 symplectic integrators.
   

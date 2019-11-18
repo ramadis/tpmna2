@@ -11,8 +11,7 @@ tensortt = {};
 errors = [];
 % Solver method
 % for i = 1:frames
-for i = 1:20
-  i = i * 5;
+for i = 1:100
   [tt, uu] = ComparisonSolver(h * i,x,k,4,0);
   [tt2, uu2] = ComparisonSolver((h * i)/2,x,k,4,0);
   tt2 = tt2(1:2:end);
@@ -37,6 +36,8 @@ for i = 1:20
 %   tensortt = [tensortt tt];
 end
 
+output = [[1:100] * h;errors];
+writematrix(output,'globalError.csv','Delimiter','tab')
 % end
 
 % Render cycle

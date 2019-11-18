@@ -1,4 +1,4 @@
-function U = Neri(h, U, k)
+function U = Neri(h, U, k, q)
   % This function calculates the next U using
   % Neri's order 4 symplectic integrators.
   
