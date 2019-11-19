@@ -1,4 +1,4 @@
-function [tt, uu] = Solver(h,x,k,q,p)
+function [tt, uu] = Solver(h,x,k,q,p, integrator)
   % solves the differential equation using an integrator.
 
   % h: time step
@@ -25,7 +25,7 @@ function [tt, uu] = Solver(h,x,k,q,p)
   for n = 1:nmax
       t = n * h;
 
-      U = AfinSimetrico(h, U, k, q);
+      U = integrator(h, U, k, q);
 
       % Save solution once every nlpt steps
       if mod(n, nplt) == 0

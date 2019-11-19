@@ -29,7 +29,7 @@ def analyze(directory):
 
   fig.tight_layout()
   ax.legend()
-  # plt.yscale("log")
+  plt.yscale("log")
   # saveFig(fig, 'comparison_graph')
   plt.show()
 
@@ -47,5 +47,5 @@ def localAsimetrico():
 
 
 
-analyze('../results/data/error_global/afines/simetrico')
+analyze('../results/data/error_global/comunes')
 # localAsimetrico()
