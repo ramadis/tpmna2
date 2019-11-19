@@ -17,7 +17,7 @@ function [tt, uu] = Solver(h,x,k,q,p, integrator)
   % perturbance = 0;
   px = x + perturbance;
   u = InitialCondition(px);
-  U = fft(u);
+  U = customFFT(u);
 
   % Main solving loop:
   uu = u;
@@ -29,7 +29,7 @@ function [tt, uu] = Solver(h,x,k,q,p, integrator)
 
       % Save solution once every nlpt steps
       if mod(n, nplt) == 0
-        u = real(ifft(U));
+        u = real(customIFFT(U));
         uu = [uu, u]; tt = [tt, t];
       end
   end

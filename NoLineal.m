@@ -4,10 +4,10 @@ function U = NoLineal(delta_t, U, k)
 % using RK4
 
 g = -(1/2)*1i*delta_t*k;
-a = g.*fft(real(ifft(U)).^2);
-b = g.*fft(real(ifft(U + a/2)).^2);
-c = g.*fft(real(ifft(U + b/2)).^2);
-d = g.*fft(real(ifft(U + c)).^2);
+a = g.*customFFT(real(customIFFT(U)).^2);
+b = g.*customFFT(real(customIFFT(U + a/2)).^2);
+c = g.*customFFT(real(customIFFT(U + b/2)).^2);
+d = g.*customFFT(real(customIFFT(U + c)).^2);
 U = U + (a + 2*(b+c) + d)/6;
 
 end
