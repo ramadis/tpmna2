@@ -45,7 +45,19 @@ def localAsimetrico():
   ax.legend()
   plt.show()
 
+def speedup():
+  ts = [0.0359, 0.066, 0.1078, 0.1622, 0.231, 0.3214, 0.4299, 0.5561, 0.7]
+  tp = [14.4295, 21.5213, 26.4939, 30.959, 38.3575, 45.5876, 57.9531, 59.5674, 72.9642]
+  order = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+  speedup = [x / y for x, y in zip(ts, tp)]
 
+  fig, ax = plt.subplots()
+  ax.set_ylabel('Speedup')
+  ax.set_xlabel('Order (q)')
+  ax.plot(order, speedup, 'o-', markersize=2)
+  fig.tight_layout()
+  plt.show()
 
-analyze('../results/data/error_global/comunes')
+# analyze('../results/data/error_global/comunes')
+speedup()
 # localAsimetrico()

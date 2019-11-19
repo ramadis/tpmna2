@@ -9,6 +9,12 @@ frames = 1;
 tensoruu = {};
 tensortt = {};
 
+% Uncomment these lines to run a parallel cluster with a custom amount of
+% workers
+% c = parcluster;
+% c.NumWorkers = workers;
+% parpool(c, workers);
+
 % Solver method
 for i = 1:frames
   [tt, uu] = Solver(h,x,k,4,0, @AfinAsimetrico);
@@ -30,3 +36,5 @@ for i = 1:frames
   pause(0.033);
 end
 % end
+
+delete(gcp('nocreate'));
